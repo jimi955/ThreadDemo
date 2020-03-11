@@ -6,18 +6,21 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * 集合类不安全问题
  * ArrayList
+ * 多线程对ArrayList同时修改导致数据不一致
+ * 更不用说读也可能报错
  */
 public class ContainerNotSafeDemo {
     public static void main(String[] args) {
-//        notSafe();
+        notSafe();
 //        vectorTest();
 //        collectionsTest();
-        copyOnWriteArrayListTest();
+//        copyOnWriteArrayListTest();
     }
 
     /**
      * 故障现象
      * java.util.ConcurrentModificationException
+     *
      */
     public static void notSafe() {
         List<String> list = new ArrayList<>();
@@ -25,12 +28,13 @@ public class ContainerNotSafeDemo {
             new Thread(() -> {
                 list.add(UUID.randomUUID().toString().substring(0, 8));
                 System.out.println(list);
+                // 写的时候读（当读写同时进行 就会报错）
             }, "Thread " + i).start();
         }
     }
 
     /**
-     * 解决方案1：使用Vector
+     * 解决方案1：使用Vector   add方法加了synchronized 重锁  并发能力下降
      */
     public static void vectorTest(){
         List<String> list = new Vector<>();
@@ -57,6 +61,8 @@ public class ContainerNotSafeDemo {
     /**
      * 解决方案3
      * CopyOnWriteArrayList
+     * 关于为什么写时复制 强烈推荐看这篇文章
+     * https://www.jianshu.com/p/ceede734434b
      */
     public static void copyOnWriteArrayListTest(){
         List<String> list = new CopyOnWriteArrayList<>();
