@@ -65,8 +65,12 @@ class MyCache {
 
     }
 
+    /**
+     * 注意不加读锁的区别
+     * @param key
+     */
     public void get(String key) {
-        rwLock.readLock().lock();
+//        rwLock.readLock().lock();
         try {
             System.out.println(Thread.currentThread().getName() + "\t正在读取：" + key);
             TimeUnit.MILLISECONDS.sleep(300);
@@ -75,7 +79,7 @@ class MyCache {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            rwLock.readLock().unlock();
+//            rwLock.readLock().unlock();
         }
 
     }

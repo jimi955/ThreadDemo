@@ -744,3 +744,31 @@ CMS垃圾收集器虽然减少了暂停应用程序的运行时间，但是他�
 
 
 ### 12、对于JDK自带的JVM监控和性能分析工具你用过那些？一般怎么用？
+
+
+### github 
+
+```
+秒杀项目搜索：
+seckill in:name,readme,description
+seckill start:>=5000 fork:>=1000
+seckill start:100..5000 fork:200..1000
+
+查看redis相关的资料 学习文档
+awesome redis
+
+高亮显示代码中某一行
+地址+#L13
+https://github.com/jimi955/underscore/blob/master/docs/public/stylesheets/normalize.css
+https://github.com/jimi955/underscore/blob/master/docs/public/stylesheets/normalize.css#L153
+高亮显示代码中某一段(13行到156行)
+地址+#L13-L156
+https://github.com/jimi955/underscore/blob/master/docs/public/stylesheets/normalize.css#L153-L156
+
+项目内搜索：
+项目地址+/find/master  或者 按快捷键 t 会自动跳转到https://github.com/jimi955/underscore/find/master
+https://github.com/jimi955/underscore >>> https://github.com/jimi955/underscore/find/master
+
+搜索某个地区的大佬：
+location:beijing language:java
+```

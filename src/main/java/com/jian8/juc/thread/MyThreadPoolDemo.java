@@ -11,13 +11,14 @@ public class MyThreadPoolDemo {
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.DiscardPolicy());
-//new ThreadPoolExecutor.AbortPolicy();
-//new ThreadPoolExecutor.CallerRunsPolicy();
-//new ThreadPoolExecutor.DiscardOldestPolicy();
-//new ThreadPoolExecutor.DiscardPolicy();
+//                new ThreadPoolExecutor.DiscardPolicy()
+//new ThreadPoolExecutor.AbortPolicy()  // 报异常
+//new ThreadPoolExecutor.CallerRunsPolicy()   // 回馈主线程
+new ThreadPoolExecutor.DiscardOldestPolicy() // 丢掉等待最久的，其他的继续尝试
+//new ThreadPoolExecutor.DiscardPolicy() // 全部丢掉
+        );
         try {
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 20; i++) {
                 threadPool.execute(() -> {
                     System.out.println(Thread.currentThread().getName() + "\t办理业务");
                 });
