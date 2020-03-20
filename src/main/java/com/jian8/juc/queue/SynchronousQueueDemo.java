@@ -20,7 +20,7 @@ public class SynchronousQueueDemo {
         new Thread(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + "\t put 1");
-                blockingQueue.put("1");
+                blockingQueue.put("1"); // 插入操作一直处于阻塞状态
                 System.out.println(Thread.currentThread().getName() + "\t put 2");
                 blockingQueue.put("2");
                 System.out.println(Thread.currentThread().getName() + "\t put 3");

@@ -31,12 +31,12 @@ public class CountDownLatchDemo {
         CountDownLatch countDownLatch = new CountDownLatch(6); // 计数器
         for (int i = 1; i <= 6; i++) {
             new Thread(() -> {
-                System.out.println(Thread.currentThread().getName()+"\t被灭");
                 countDownLatch.countDown();
+                System.out.println(Thread.currentThread().getName()+"\t被灭");
             }, CountryEnum.forEach_CountryEnum(i).getRetMessage()).start();
         }
-//        TimeUnit.SECONDS.sleep(4);
-//        System.out.println(countDownLatch.getCount());
+        TimeUnit.SECONDS.sleep(4);
+        System.out.println(countDownLatch.getCount());
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName()+"\t=====秦统一");
     }

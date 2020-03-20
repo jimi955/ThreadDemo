@@ -27,6 +27,7 @@ public class CyclicBarrierDemo {
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName());
             }, "" + i).start();
         }
     }
