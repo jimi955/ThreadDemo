@@ -13,8 +13,8 @@ public class MapSafe {
 
     public static void notSafe() {
 //        Map<String, String> map = new HashMap<>();
-//        Map<String, String> map = new ConcurrentHashMap<>();
-        Map<String, String> map = Collections.synchronizedMap(new HashMap<>());
+        Map<String, String> map = new ConcurrentHashMap<>();
+//        Map<String, String> map = Collections.synchronizedMap(new HashMap<>());
 
         for (int i = 1; i <= 30; i++) {
             new Thread(() -> {

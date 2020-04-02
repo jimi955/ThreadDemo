@@ -1701,7 +1701,7 @@ class MyThread2 implements Callable<Integer> {
 
      **执行长期的任务，性能好很多**
 
-     创建一个定长线程池，可控制线程最大并发数，炒出的线程回在队列中等待。
+     创建一个定长线程池，可控制线程最大并发数，超出的线程回在队列中等待。
 
      newFixedThreadPool创建的线程池corePoolSize和maximumPoolSize值是想到等的，他使用的是LinkedBlockingQueue
 
@@ -1717,7 +1717,7 @@ class MyThread2 implements Callable<Integer> {
 
      **执行很多短期异步的小程序或负载较轻的服务器**
 
-     创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲县城，若无可回收，则新建线程。
+     创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。
 
      newCachedThreadPool将corePoolSize设置为0，将maximumPoolSize设置为Integer.MAX_VALUE,使用的SynchronousQueue,也就是说来了任务就创建线程运行，当县城空闲超过60s，就销毁线程
 
