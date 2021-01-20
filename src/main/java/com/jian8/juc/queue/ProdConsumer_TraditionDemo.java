@@ -65,10 +65,10 @@ class ShareData {//资源类
                 //等待不能生产
                 condition.await();
             }
-            //2.干活
+            // 2.干活
             number++;
             System.out.println(Thread.currentThread().getName() + "\t" + number);
-            //3.通知
+            // 3.通知
             condition.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
